@@ -1,0 +1,62 @@
+<input type="hidden" id="hint" value="<%= @hint%>"/>
+<script type="text/javascript"> 
+    var information=$("#hint").val();
+    if(information!=null&&information!='')
+        alert(information); 
+</script> 
+
+<div class="login-form" style="width:40%" >
+
+<%= form_for :user, :url => {:action => 'index'} do |f| %>
+<table>
+    <tr>
+        <td>
+            用户名:
+        </td>
+        <td>
+             <%= f.text_field :name %>  <p  style="color:red" id="hintforusername"></p>
+        </td>
+    </tr>
+     <tr>
+        <td>
+             密码:  
+        </td>
+        <td>
+              <%= f.password_field :password %> <p  style="color:red" id="hintforpassword"></p>
+        </td>
+    </tr>
+     <tr>
+        <td>
+           密码确认: 
+        </td>
+        <td>
+              <%= f.password_field :password1 %> <p  style="color:red" id="hintforpassword"></p>
+        </td>
+    </tr>
+     <tr>
+        <td>
+            所在学校:
+        </td>
+        <td>
+             <%= select("university","universityname", options=@universitiesname,{ :include_blank => false }) %></p>
+        </td>
+    </tr>
+     <tr>
+        <td>
+          性别:
+        </td>
+        <td>
+            <%= select("gendar","gendar", options=@gendars,{ :include_blank => false }) %>
+        </td>
+    </tr>
+    <tr>
+         <td colspan='2'>
+            <%= submit_tag '注册',:class=>'btn btn-primary btn-large btn-block',:style=>'width:150px'%>
+            <%= submit_tag '返回',:class=>'btn btn-primary btn-large btn-block',:style=>'width:150px'%>
+        </td>
+    </tr>
+</table>
+   
+<% end %>
+
+</div>

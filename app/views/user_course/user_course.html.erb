@@ -1,0 +1,134 @@
+<input type="hidden" id="information" value="<%= @information %>"/>
+<center><h1>课程表</h1></center>
+
+<script type="text/javascript"> 
+    var information=$("#information").val();
+    if(information!=null&&information!='')
+        alert(information); 
+</script> 
+
+<table class="bordered" border = "3px" bordercolor = "0x4C96FF" align = "center">
+    <thead>
+<!--<tr>-->
+<!--<td>项目</td>-->
+<!--<td ></td>-->
+<!--<td colspan = "5" align = "center">上课</td>-->
+<!--<td colspan = "2" align = "center">休息</td>-->
+<!--</tr>-->
+
+<tr>
+<th >星期</th>
+<th></th>
+<th>星期一</th>
+<th>星期二</th>
+<th>星期三</th>
+<th>星期四</th>
+<th>星期五</th>
+<th>星期六</th>
+<th>星期天</th>
+</tr>
+</thead>
+<tr>
+<td rowspan = "4" align="center">上午</td>
+<td width="60" height="50" align="center">第一节</td>
+<td width="130" height="50" align="center"><%= link_to @day1["第1节"],:controller=>'user_course',:action=>'details',:cname=>@day1["第1节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day2["第1节"],:controller=>'user_course',:action=>'details',:cname=>@day2["第1节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day3["第1节"],:controller=>'user_course',:action=>'details',:cname=>@day3["第1节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day4["第1节"],:controller=>'user_course',:action=>'details',:cname=>@day4["第1节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day5["第1节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第1节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day6["第1节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第1节"]%></td>
+<td  rowspan = "4">休息</td>
+</tr>
+
+<tr>
+<td width="60" height="50" align="center">第二节</td>
+<td width="130" height="50" align="center"><%= link_to @day1["第2节"],:controller=>'user_course',:action=>'details',:cname=>@day1["第2节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day2["第2节"],:controller=>'user_course',:action=>'details',:cname=>@day2["第2节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day3["第2节"],:controller=>'user_course',:action=>'details',:cname=>@day3["第2节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day4["第2节"],:controller=>'user_course',:action=>'details',:cname=>@day4["第2节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day5["第2节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第2节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day6["第2节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第2节"]%></td>
+</tr>
+
+<tr>
+<td width="60" height="50" align="center">第三节</td>
+<td width="130" height="50" align="center"><%= link_to @day1["第3节"],:controller=>'user_course',:action=>'details',:cname=>@day1["第3节"]%></td>
+<td width="130" height="50"  align="center"><%= link_to @day2["第3节"],:controller=>'user_course',:action=>'details',:cname=>@day2["第3节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day3["第3节"],:controller=>'user_course',:action=>'details',:cname=>@day3["第3节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day4["第3节"],:controller=>'user_course',:action=>'details',:cname=>@day4["第3节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day5["第3节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第3节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day6["第3节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第3节"]%></td>
+</tr>
+
+<tr>
+<td width="60" height="50" align="center">第四节</td>
+<td width="130" height="50" align="center"><%= link_to @day1["第4节"],:controller=>'user_course',:action=>'details',:cname=>@day1["第4节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day2["第4节"],:controller=>'user_course',:action=>'details',:cname=>@day2["第4节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day3["第4节"],:controller=>'user_course',:action=>'details',:cname=>@day3["第4节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day4["第4节"],:controller=>'user_course',:action=>'details',:cname=>@day4["第4节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day5["第4节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第4节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day6["第4节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第4节"]%></td>
+</tr>
+
+
+<tr>
+<td rowspan ="4">下午</td>
+<td width="60" height="50" align="center">第五节</td>
+<td width="130" height="50" align="center"><%= link_to @day1["第5节"],:controller=>'user_course',:action=>'details',:cname=>@day1["第5节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day2["第5节"],:controller=>'user_course',:action=>'details',:cname=>@day2["第5节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day3["第5节"],:controller=>'user_course',:action=>'details',:cname=>@day3["第5节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day4["第5节"],:controller=>'user_course',:action=>'details',:cname=>@day4["第5节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day5["第5节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第5节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day6["第5节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第5节"]%></td>
+<td rowspan = "4">休息</td>
+</tr>
+
+<tr>
+<td width="60" height="50" align="center">第六节</td>
+<td width="130" height="50" align="center"><%= link_to @day1["第6节"],:controller=>'user_course',:action=>'details',:cname=>@day1["第6节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day2["第6节"],:controller=>'user_course',:action=>'details',:cname=>@day2["第6节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day3["第6节"],:controller=>'user_course',:action=>'details',:cname=>@day3["第6节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day4["第6节"],:controller=>'user_course',:action=>'details',:cname=>@day4["第6节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day5["第6节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第6节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day6["第6节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第6节"]%></td>
+</tr>
+
+
+<tr>
+<td width="60" height="50" align="center">第七节</td>
+<td width="130" height="50" align="center"><%= link_to @day1["第7节"],:controller=>'user_course',:action=>'details',:cname=>@day1["第7节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day2["第7节"],:controller=>'user_course',:action=>'details',:cname=>@day2["第7节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day3["第7节"],:controller=>'user_course',:action=>'details',:cname=>@day3["第7节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day4["第7节"],:controller=>'user_course',:action=>'details',:cname=>@day4["第7节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day5["第7节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第7节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day6["第7节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第7节"]%></td>
+</tr>
+
+
+<tr>
+<td width="60" height="50" align="center">第八节</td>
+<td width="130" height="50" align="center"><%= link_to @day1["第8节"],:controller=>'user_course',:action=>'details',:cname=>@day1["第8节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day2["第8节"],:controller=>'user_course',:action=>'details',:cname=>@day2["第8节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day3["第8节"],:controller=>'user_course',:action=>'details',:cname=>@day3["第8节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day4["第8节"],:controller=>'user_course',:action=>'details',:cname=>@day4["第8节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day5["第8节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第8节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day6["第8节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第8节"]%></td>
+</tr>
+
+<tr>
+<td rowspan ="1">晚上</td>
+<td width="60" height="50" align="center">第九节</td>
+<td width="130" height="50" align="center"><%= link_to @day1["第9节"],:controller=>'user_course',:action=>'details',:cname=>@day1["第9节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day2["第9节"],:controller=>'user_course',:action=>'details',:cname=>@day2["第9节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day3["第9节"],:controller=>'user_course',:action=>'details',:cname=>@day3["第9节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day4["第9节"],:controller=>'user_course',:action=>'details',:cname=>@day4["第9节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day5["第9节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第9节"]%></td>
+<td width="130" height="50" align="center"><%= link_to @day6["第9节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第9节"]%></td>
+<td rowspan = "1">休息</td>
+</tr>
+
+<tr>
+    <td colspan='2' align="right"><%= link_to '添加新课程', :controller => 'user_course' , :action => 'new' %></td>
+</tr>
+
+</table>

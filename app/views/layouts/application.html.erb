@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>课程圈</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="/responsive-nav.css">
+  <link rel="stylesheet" href="/flat-ui.css">
+<script src="/responsive-nav.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div role="navigation" id="nav" class="closed" aria-hidden="false" style="transition: max-height 400ms; position: relative;">
+      <ul>
+        <li class="active"><a href="/login/login" style=" font-size:20px;text-decoration:none">首页</a></li>
+          <li><a href="/user_course/user_course" style=" font-size:20px;text-decoration:none">我的课程</a></li>
+            <li><a href="/articlesbyauser/articlesbyauser" style=" font-size:20px;text-decoration:none">我的文章</a></li>
+        <li><a href="/commentsbyauser/commentsbyauser" style=" font-size:20px;text-decoration:none">我的评论</a></li>
+        <li><a href="/logout/logout" style=" font-size:20px;text-decoration:none" >退出</a></li>
+      </ul>
+    </div>
+<div role ='main' class ='main login-screen2'>
+<%= yield %>
+</div>
+<script>
+  var navigation = responsiveNav("#nav");
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+  <em  style="color:red"><%= @hint %></em> 
+  <div class="bootstrap-frm">
+      <h1>Please Input Your Comment
+<span>Please fill all the texts in the fields.</span>
+</h1>
+<%= form_for :comment, :url => {:action => 'newcomment'} do |f| %>
+
+    <label>
+        <span>评论内容:</span>
+         <%= f.text_area :content,:placeholder => '评论内容', :rows =>20, :cols=>40 %>
+    </label>
+    <label>
+        <span>&nbsp;</span>
+         <%= submit_tag '发表评论' ,:cname =>@coursename,:class =>'button'%>
+    <%= submit_tag '返回文章', :canme=>@coursename,:class =>'button'%>
+    </label>
+   
+<% end %>
+</div>

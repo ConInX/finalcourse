@@ -1,0 +1,33 @@
+
+<table class="bordered" border = "3px" bordercolor =black align = "center">
+  <thead>
+    <tr>
+      <h3><b>我发表的所有文章</b></h3><%= @coursename %></h2>
+    </tr>
+    <tr>
+      <th width="400" height="30">文章名称</th>
+      <th width="200" height="30">所属课程</th>
+      <th width="80" height="30">浏览次数</th>
+      <th width="80" height="30">评论次数</th>
+      <th width="100" height="30">发表时间</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td width="400" align="center"><%= article.articlename %></td>
+        <td width="200" align="center"><%= article.coursename %></td>
+        <td width="80" align="center"><%= article.viewtimes %></td>
+        <td width="80" align="center"><%= article.answertimes %></td>
+        <td width="100" align="center"><%= article.createtime %></td>
+        <td width="50"><%= link_to '详情', :controller => 'article' , :action => 'details' ,:aname => article.articlename ,:cname =>article.coursename%></td>
+        <td width="100"><%= link_to '删除该文章', :controller => 'articlesbyauser' , :action => 'delete' ,:aname => article.articlename %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

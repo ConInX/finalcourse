@@ -1,0 +1,36 @@
+ 
+<table class="bordered" border = "3px" bordercolor = "0x4C96FF" align = "center">
+  <thead>
+    <tr>
+      <th width="250" height="30" align="center">课程名称</th>
+      <th width="200" height="30" align="center">
+        <%= form_for :university, :url => {:action => 'new'} do |f| %>
+        <%= select("uniersity","universityname", options=@universitiesname,{ :include_blank => false }) %>
+        <%= submit_tag '刷新',:class=>'button',:style=>'width:50px'%>
+        <% end %>
+      </th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td width="250" align="center"><%= course.coursename %></td>
+        <td width="200" align="center"><%= course.university %></td>
+        <td><%= link_to '详情', :controller => 'user_course' , :action => 'details1' ,:cname => course.coursename  %></td>
+        <td><%= link_to '加入我的课表', :controller => 'user_course' , :action => 'add' ,:cname => course.coursename %></td>
+      </tr>
+    <% end %>
+      <tr>
+        <td colspan="4" align="right"><%= link_to '自定义课程', :controller => 'user_course' , :action => 'addbyself'   %></td>
+      </tr>
+  </tbody>
+</table>
+  
+<input type="hidden" id="information" value="<%= @information %>"/>
+<script type="text/javascript"> 
+    var information=$("#information").val();
+    if(information!=null&&information!='')
+        alert(information); 
+</script>

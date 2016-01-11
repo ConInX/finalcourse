@@ -1,0 +1,29 @@
+<table class="bordered" border = "3px" bordercolor =black align = "center">
+  <thead>
+    <tr>
+      <h3><b>我发表的所有评论</b></h3><%= @coursename %></h2>
+    </tr>
+    <tr>
+      <th width="250" height="30">文章名称</th>
+      <th width="500" height="30">评论内容</th>
+      <th width="100" height="30">发表时间</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td width="250" align="center"><%= comment.articlename %></td>
+        <td width="500" align="left"><%= comment.content %></td>
+        <td width="100" align="center"><%= comment.createtime %></td>
+
+        <td width="50"><%= link_to '详情', :controller => 'article' , :action => 'details' ,:aname => comment.articlename ,:cname =>comment.coursename%></td>
+        <td width="100"><%= link_to '删除该评论', :controller => 'commentsbyauser' , :action => 'delete' ,:aname =>comment.articlename %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

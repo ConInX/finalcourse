@@ -1,0 +1,55 @@
+<input type="hidden" id="information" value="<%= @hint %>"/>
+
+<script type="text/javascript"> 
+    var information=$("#information").val();
+    if(information!=null&&information!='')
+        alert(information); 
+</script> 
+ 
+  <div class="bootstrap-frm">
+        <h1>Please Input Your Lesson
+<span>Please fill all the texts in the fields.</span>
+</h1>
+<%= form_for  :course,:url => {:action => 'addbyself'}  do |f| %>
+    <label>
+      <span>
+        课程名称: 
+      </span>
+       <%= f.text_field :coursename %>
+    </label>
+      <label>
+      <span>
+          上课时间:  
+      </span>
+        <%= select("day","day", options=@days,{ :include_blank => false }) %>
+    </label>
+      <label>
+      <span>
+        具体时间: 
+      </span>
+        <%= select("time","time", options=@times,{ :include_blank => false }) %>
+    </label>
+      <label>
+      <span>
+        上课地点: 
+      </span>
+         <%= f.text_field :classroom %>
+    </label>
+      <label>
+      <span>
+      任课老师:   
+      </span>
+       <%= f.text_field :tercher %>
+    </label>
+      <label>
+      <span>
+        所属大学: 
+      </span>
+        <%= select("university","universityname", options=@universitiesname,{ :include_blank => false }) %>
+    </label>
+      
+   <label>
+     <span>&nbsp;</span>
+    <%= submit_tag '提交',:class =>'button'%>
+    </label>
+<% end %></div>

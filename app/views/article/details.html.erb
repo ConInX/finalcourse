@@ -1,0 +1,40 @@
+  <em  style="color:red"><%= @hint %></em> 
+<table  class="bordered" border = "3px" bordercolor = black align = "center">
+  <tbody>
+    <tr>
+      <td width="500"  align = "center"><b>文章:</b>   <%= @article.articlename%></td>
+      
+      <td width="100"  align = "center"><b>作者:</b>   <%= @article.name%></td>
+      
+      <td width="200" align = "center"><b>创建时间:</b>   <%= @article.createtime%></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table  class="bordered" border = "3px" bordercolor = black align = "center">
+  <tbody>
+    <tr>
+      <td width="800"  >
+        <p><%= @article.content%></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table  class="bordered" border = "3px" bordercolor = black align = "center">
+  <tbody>
+     
+    <% @comments.each do |comment|  %>
+      <tr>
+        <td width="600"  align = "left"><b><%=comment.name%>的评论:</b><%=comment.content %></td>
+        <td width="200"  align = "center"><b>评论时间：</b><%=comment.createtime%></td>
+      </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '发表评论', :controller => 'article',:action => 'newcomment',:aname =>@article.articlename,:cname=>@article.coursename%>
+<br>
+<%= link_to '返回所有文章', :controller => 'article' , :action => 'article',:cname =>@article.coursename %>
+

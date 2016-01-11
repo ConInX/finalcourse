@@ -1,0 +1,29 @@
+<input type="hidden" id="hint" value="<%= @hint%>" />
+<script type="text/javascript"> 
+    var hint=$("#hint").val();
+    if(hint!=null && hint !='')
+        alert(hint); 
+</script> 
+
+<div class="login">       
+    <div class="login-screen" style="width:360px">
+        <div class="login-icon">
+            <img src="../images/icon.png" alt="Welcome to KeChengQuan">
+            <h4>Welcome to <small>KeChengQuan</small></h4>
+        </div>
+        <div class="login-form" style="width:359px">
+            <%= form_for :user, :url => {:action => 'login'} do |f| %>
+            <div class="control-group" style="width:313px">
+                <%= f.text_field :name ,:class=>'login-field',:id=>'login-name',:placeholder=>'Enter your name'%>
+                <label class="login-field-icon fui-man-16" for="login-name"></label>
+            </div>
+            <div class="control-group" style="width:313px">
+                 <%= f.password_field :password ,:class=>'login-field',:id=>'login-pass',:placeholder=>'Password'%>
+                 <label class="login-field-icon fui-lock-16" for="login-pass"></label>
+            </div> 
+            <%= submit_tag '登陆',:class=>'btn btn-primary btn-large btn-block',:style=>'width:150px'%>
+                <%= submit_tag '注册',:class=>'btn btn-primary btn-large btn-block',:style=>'width:150px'%>
+            <% end %>         
+        </div>
+    </div>
+</div> 
