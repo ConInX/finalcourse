@@ -20,3 +20,15 @@
 #吉林大学
 #中山大学
 #中国科学院大学
+t=Time.now
+universities.create({:universityname=>"北京大学",:location=>"北京",:created=>t})
+universities.create({:universityname=>"清华大学",:location=>"北京",:created=>t})
+universities.create({:universityname=>"复旦大学",:location=>"上海",:created=>t})
+universities.create({:universityname=>"上海交通大学",:location=>"上海",:created=>t})
+universities.create({:universityname=>"武汉大学",:location=>"湖北",:created=>t})
+universities.create({:universityname=>"浙江大学",:location=>"浙江",:created=>t})
+universities.create({:universityname=>"南京大学",:location=>"江苏",:created=>t})
+universities.create({:universityname=>"中国人民大学",:location=>"北京",:created=>t})
+universities.create({:universityname=>"吉林大学",:location=>"吉林",:created=>t})
+universities.create({:universityname=>"中山大学",:location=>"广东",:created=>t})
+universities.create({:universityname=>"中国科学院大学",:location=>"北京",:created=>t})
