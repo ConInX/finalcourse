@@ -53,3 +53,11 @@ end
  gem 'paperclip'
  gem 'twitter-bootstrap-rails'
  gem 'therubyracer'
+ 
+ group :development, :test do
+  gem 'rspec-rails'
+ end
+ 
+ group :test do
+     gem 'capybara'
+ end

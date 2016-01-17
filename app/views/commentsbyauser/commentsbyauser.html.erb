@@ -1,3 +1,12 @@
+
+<input type="hidden" id="information" value="<%= @hint %>"/>
+
+<script type="text/javascript"> 
+    var information=$("#information").val();
+    if(information!=null&&information!='')
+        alert(information); 
+</script> 
+
 <table class="bordered" border = "3px" bordercolor =black align = "center">
   <thead>
     <tr>
@@ -18,8 +27,10 @@
         <td width="500" align="left"><%= comment.content %></td>
         <td width="100" align="center"><%= comment.createtime %></td>
 
-        <td width="50"><%= link_to '详情', :controller => 'article' , :action => 'details' ,:aname => comment.articlename ,:cname =>comment.coursename%></td>
-        <td width="100"><%= link_to '删除该评论', :controller => 'commentsbyauser' , :action => 'delete' ,:aname =>comment.articlename %></td>
+        <td width="50"><%= link_to '详情', :controller => 'article' , :action => 'details' ,
+                      :aname => comment.articlename ,:cname =>comment.coursename%></td>
+        <td width="100"><%= link_to '删除该评论',:controller => 'commentsbyauser' , :action => 'delete',:aname => comment.articlename ,:cname =>comment.coursename,
+                          :commentid=>comment.id %></td>
       </tr>
     <% end %>
   </tbody>

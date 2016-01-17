@@ -41,9 +41,15 @@ class LoginController < ApplicationController
     universities=University.all
     
     @universitiesname=Array.new
+    #"清华大学","北京大学","复旦大学","上海交通大学","武汉大学","中国人民大学",
+    # "南京大学","吉林大学","中山大学","中国科学院大学","请选择您的学校"
     universities.each do |university|
       @universitiesname.unshift(university.universityname)
     end
+    @universitiesname.unshift("请选择您的学校")
+    
+    
+    
     
     unless request.get?
       if(params[:commit] == "返回")

@@ -1,4 +1,11 @@
-  <em  style="color:red"><%= @hint %></em> 
+
+  <input type="hidden" id="information" value="<%= @hint %>"/>
+
+<script type="text/javascript"> 
+    var information=$("#information").val();
+    if(information!=null&&information!='')
+        alert(information); 
+</script> 
 <table  class="bordered" border = "3px" bordercolor = black align = "center">
   <tbody>
     <tr>

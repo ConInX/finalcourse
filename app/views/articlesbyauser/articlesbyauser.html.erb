@@ -23,7 +23,7 @@
         <td width="80" align="center"><%= article.answertimes %></td>
         <td width="100" align="center"><%= article.createtime %></td>
         <td width="50"><%= link_to '详情', :controller => 'article' , :action => 'details' ,:aname => article.articlename ,:cname =>article.coursename%></td>
-        <td width="100"><%= link_to '删除该文章', :controller => 'articlesbyauser' , :action => 'delete' ,:aname => article.articlename %></td>
+        <td width="100"><%= link_to '删除该文章',:controller => 'articlesbyauser',:action => 'delete',:id=>article.id %></td>
       </tr>
     <% end %>
   </tbody>

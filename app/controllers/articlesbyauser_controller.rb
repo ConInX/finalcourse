@@ -9,8 +9,8 @@ class ArticlesbyauserController < ApplicationController
   end
   
   def delete
-    articlename=params[:aname]
-    @oldarticle=Article.find_by_articlename(articlename)
+    id=params[:id]
+    @oldarticle=Article.find_by_id(id)
     @oldarticle.destroy
     redirect_to :controller =>'articlesbyauser' ,  :action => 'articlesbyauser'
   end

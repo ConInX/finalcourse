@@ -104,6 +104,7 @@ class UserCourseController < ApplicationController
     universities.each do |university|
       @universitiesname.unshift(university.universityname)
     end
+    @universitiesname.unshift("请选择您的学校")
     
     commit=params[:commit]
     if(commit=="刷新")
@@ -114,7 +115,6 @@ class UserCourseController < ApplicationController
       @courses=Course.where(:university =>university)
       return
     end
-    
   end
   
   

@@ -37,13 +37,20 @@ class ArticleController < ApplicationController
     coursename=params[:cname]
     session[:articlename]=articlename
     session[:coursename]=coursename
-    @hint=params[:hint]
+    #@hint=params[:hint]
+    
+    @article=Article.find_by_articlename(articlename)
+    if(@article==nil)
+      hint="该文章已经被删除"
+      redirect_to :controller=>'commentsbyauser' , :action=>'commentsbyauser',:hint=>hint
+      return
+    end
     
     @article=Article.find_by_articlename(articlename)
     viewtimes=@article.viewtimes+1
     @article.update_attribute(:viewtimes,viewtimes)
     
-    @comments=Comment.where(:coursename => coursename,:articlename=>articlename)
+    @comments=Comment.where(:articlename=>articlename,:coursename=>coursename)
   end
   
   def newcomment
@@ -63,7 +70,8 @@ class ArticleController < ApplicationController
       @newcomment=Comment.create!(:content=>content,:articlename=>@articlename,:name=>name,:coursename=>@coursename,:createtime=>createtime)
       @hint="评论成功"
       @article=Article.find_by_articlename(@articlename)
-      answertimes=@article.answertimes+1
+      comments=Comment.where(:coursename =>@coursename,:articlename=>@articlename)
+      answertimes=comments.size
       @article.update_attribute(:answertimes,answertimes)
       redirect_to :controller =>'article',:action => 'details',:aname=>@articlename,:cname=>@coursename
     end

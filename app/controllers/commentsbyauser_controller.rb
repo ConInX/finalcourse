@@ -11,8 +11,17 @@ class CommentsbyauserController < ApplicationController
     coursename=params[:cname]
     commentid=params[:commentid]
     
+    
+    
     @oldcomment=Comment.find_by_id(commentid)
     @oldcomment.destroy
+   
+   @article=Article.find_by_articlename(articlename)
+    if(@article==nil)
+      hint="该文章已经被删除"
+      redirect_to :controller=>'commentsbyauser' , :action=>'commentsbyauser',:hint=>hint
+      return
+    end
    
     @article=Article.find_by_articlename(articlename)
     comments=Comment.where(:coursename =>coursename,:articlename=>articlename)
