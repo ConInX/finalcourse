@@ -1,3 +1,12 @@
+<left><span>首页 > 添加课程 > 所有课程 > 课程详情</span></left>
+<right><span style="float:right">
+    <% if session[:name] !=nil%>用户：<%= session[:name]%>   , <a href="/logout/logout" >退出</a>, 
+    <% else %>
+       <a href="/login/login" >登录</a>
+    <%end%>
+    <%= link_to '返回', :controller => 'user_course' , :action => 'new' ,:cname =>@course.coursename %> 
+    </span></right>
+<center><h1><%= @course.coursename %>的具体信息</h1></center>
 <table border = "3px" bordercolor = "0x4C96FF" align = "center">
   <thead>
     <tr>
@@ -6,7 +15,6 @@
       <th >上课时间</th>
       <th >任课老师</th>
       <th >所属学校</th>
-      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -18,7 +26,6 @@
         <td><%= @course.classtime %></td>
         <td><%= @course.tercher %></td>
         <td><%= @course.university %></td>
-        <td><%= link_to '返回', :controller => 'user_course' , :action => 'new' ,:cname =>@course.coursename %></td>
       </tr>
   </tbody>
 </table>

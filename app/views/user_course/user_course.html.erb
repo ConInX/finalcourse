@@ -1,5 +1,16 @@
 <input type="hidden" id="information" value="<%= @information %>"/>
-<center><h1>课程表</h1></center>
+<left><span>首页 > 我的课程表</span></left>
+<right><span style="float:right">
+    <% if session[:name] !=nil%>用户：<%= session[:name]%>   , <%= link_to '添加新课程', :controller => 'user_course' , :action => 'new' %>，
+    <a href="/logout/logout" >退出</a>, 
+   
+    <% else %>
+       <a href="/login/login" >登录</a>
+    <%end%>
+    <%= link_to '返回', :controller => 'login' , :action => 'login'  %> 
+    </span></right>
+    <br></br>
+<center><h1>我的课程表</h1></center>
 
 <script type="text/javascript"> 
     var information=$("#information").val();
@@ -125,10 +136,6 @@
 <td width="130" height="50" align="center"><%= link_to @day5["第9节"],:controller=>'user_course',:action=>'details',:cname=>@day5["第9节"]%></td>
 <td width="130" height="50" align="center"><%= link_to @day6["第9节"],:controller=>'user_course',:action=>'details',:cname=>@day6["第9节"]%></td>
 <td rowspan = "1">休息</td>
-</tr>
-
-<tr>
-    <td colspan='2' align="right"><%= link_to '添加新课程', :controller => 'user_course' , :action => 'new' %></td>
 </tr>
 
 </table>

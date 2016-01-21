@@ -1,6 +1,13 @@
 class UserCourseController < ApplicationController
   
+  #用来进行相应的课表的绘制
+  #首先先查询当前用户的所有选课信息，根据所有的选课的选课时间，在相应的课表的位置填写相关的课程信息
   def user_course
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
     @information=params[:information]
     if(session[:name]==nil)
       redirect_to :controller=>'login',:action=>'login',:hint=>"请先登陆"
@@ -43,8 +50,13 @@ class UserCourseController < ApplicationController
     
   end
   
-  
+  #在我的课表中的课程后单击删除操作，则删除自己课表中的课程
   def delete
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
     cname=params[:cname]
     username=session[:name]
     @course=Usercourse.find_by_name_and_coursename(username,cname)
@@ -54,8 +66,16 @@ class UserCourseController < ApplicationController
   end
   
   
-  
+  #为自己的课表添加新的课程
+  #如果课程在自己的课表中，则提示 该课程已经在你的课表中 的信息
+  #如果选择的课程和你的课表中的课程出现了时间冲突，则添加课程失败，给出相应提示
+  #添加课程成功也要给出相应的提示
   def add
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
     coursename=params[:cname]
     name=session[:name]
     courseInUserCourse=Usercourse.find_by_name_and_coursename(name,coursename)
@@ -88,14 +108,24 @@ class UserCourseController < ApplicationController
   
   
   
-  
+  #显示一个课程的包括上课地点、时间、任课老师等详细的信息
   def details
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
     cname=params[:cname]
     @course=Course.find_by_coursename(cname)
   end
   
-
+  #为自己的课表天假课程，包括上课时间冲突的验证
   def new 
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
     @courses=Course.all
     @information = params[:information]
     universities=University.all
@@ -117,8 +147,14 @@ class UserCourseController < ApplicationController
     end
   end
   
-  
+   #为选课列表添加一个新的候选选项
+  #需要填写课程的名称、课程时间、上课地点、所属学校、任课老师等信息，在数据库courses表中进行存储
   def addbyself
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
       universities=University.all
     
       @universitiesname=Array.new
@@ -151,6 +187,11 @@ class UserCourseController < ApplicationController
     end
     
     def details1
+      username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
       cname=params[:cname]
       @course=Course.find_by_coursename(cname)
     end

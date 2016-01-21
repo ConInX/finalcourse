@@ -1,34 +1,40 @@
- 
+<left><span>首页 > 添加课程 > 课程列表</span></left>
+<right><span style="float:right">
+    <% if session[:name] !=nil%>用户：<%= session[:name]%>   ,
+    <%= link_to '自定义增加课程', :controller => 'user_course' , :action => 'addbyself'   %>,
+    <a href="/logout/logout" >退出</a>, 
+    <% else %>
+       <a href="/login/login" >登录</a>
+    <%end%>
+    <%= link_to '返回', :controller => 'user_course' , :action => 'user_course'  %> 
+    </span></right>
+    <br></br>
+ <center><h1>所有的课程信息</h1></center>
 <table class="bordered" border = "3px" bordercolor = "0x4C96FF" align = "center">
   <thead>
     <tr>
-      <th width="250" height="30" align="center">课程名称</th>
+      <th width="450" height="30" align="center">课程名称</th>
       <th width="200" height="30" align="center">上课时间</th>
-      <th width="200" height="30" align="center">
+      <th width="300" height="30" align="center">
         <%= form_for :university, :url => {:action => 'new'} do |f| %>
         <%= select("uniersity","universityname", options=@universitiesname,{ :include_blank => false }) %>
         <%= submit_tag '刷新',:class=>'button',:style=>'width:50px'%>
         <% end %>
       </th>
 
-      <th colspan="2"></th>
+      <th>操作</th>
     </tr>
   </thead>
 
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td width="250" align="center"><%= course.coursename %></td>
+        <td width="450" align="center"><%= link_to course.coursename, :controller => 'user_course' , :action => 'details1' ,:cname => course.coursename  %></td>
         <td width="200" align="center"><%=course.classtime %></td>
-        <td width="200" align="center"><%= course.university %></td>
-        
-        <td><%= link_to '详情', :controller => 'user_course' , :action => 'details1' ,:cname => course.coursename  %></td>
-        <td><%= link_to '加入我的课表', :controller => 'user_course' , :action => 'add' ,:cname => course.coursename %></td>
+        <td width="300" align="center"><%= course.university %></td>
+        <td><%= link_to '加入我的课程表', :controller => 'user_course' , :action => 'add' ,:cname => course.coursename %></td>
       </tr>
     <% end %>
-      <tr>
-        <td colspan="4" align="right"><%= link_to '自定义课程', :controller => 'user_course' , :action => 'addbyself'   %></td>
-      </tr>
   </tbody>
 </table>
   

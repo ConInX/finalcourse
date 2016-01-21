@@ -1,5 +1,12 @@
 class LoginController < ApplicationController
+  #根据用户提交的用户名和密码等信息进行验证，如果数据库中存在相应的纪录，则说登陆成功，并重定向到我的课表的页面，把当前用户的所有信息保存在session对象中
+  #用过数据库中不存在相应的纪录，则给出提示信息，并请求用户重新输入
+  #如果用户点击注册按钮，则重定向到注册界面
+  #同时验证数据的用户名和密码不能为空
  def login
+   
+    @size1=0
+    @size2=0
     @hint = params[:hint]
     unless request.get?
         username = params[:user][:name]
@@ -33,7 +40,13 @@ class LoginController < ApplicationController
     end
   end
  
+ 
+ #根据用户提交的用户名、密码、选择学校、在数据库的users表中保存相应的纪录
+ #其中包含用户名、密码长度大于等于5，输入两次密码必须一样，要选择学校的约束验证
+ #如果点击返回则进入登陆页面
   def index
+    @size1=0
+    @size2=0
     @gendars=Array.new
     @gendars.unshift("男")
     @gendars.unshift("女")

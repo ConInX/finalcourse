@@ -1,4 +1,13 @@
-  <em  style="color:red"><%= @hint %></em> 
+<left><span>首页 >  <%= @coursename%> > <%= @articlename%> > 发表评论</span></left>
+<right><span style="float:right">
+    <% if session[:name] !=nil%>用户：<%= session[:name]%>   , <a href="/logout/logout" >退出</a>, 
+    <% else %>
+       <a href="/login/login" >登录</a>
+    <%end%>
+    <%= link_to '返回', :controller =>'article' ,:action => 'details',:aname=>@articlename,:cname=>@coursename  %> 
+    </span></right>
+    <br></br>
+    <br></br>
   <div class="bootstrap-frm">
       <h1>Please Input Your Comment
 <span>Please fill all the texts in the fields.</span>

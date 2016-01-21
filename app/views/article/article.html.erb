@@ -1,10 +1,19 @@
-
-
+<left><span>首页 > <%=@coursename%> > 文章列表</span></left>
+<right><span style="float:right">
+    <% if session[:name] !=nil%>用户：<%= session[:name]%>   ,
+    <%= link_to '发表文章', :controller => 'article' , :action => 'newarticle',:cname =>@coursename %>,
+    <a href="/logout/logout" >退出</a>, 
+    <% else %>
+       <a href="/login/login" >登录</a>
+    <%end%>
+    <%= link_to '返回', :controller => 'user_course' , :action => 'details',:cname =>@coursename  %> 
+    </span></right>
+    <br></br>
 <table class="bordered" border = "3px" bordercolor = "0x4C96FF" align = "center">
   <thead>
     <tr>
       <!--<th colspan="6"><h2><b>课程名称：</b><%= @coursename %></h2></th>-->
-      <h2><b>课程名称：</b><%= @coursename %></h2>
+      <center><h2><b>课程名称：</b><%= @coursename %></h2></center>
     </tr>
     </thead>
     <tr>
@@ -13,19 +22,17 @@
       <th width="80" height="50">浏览次数</th>
       <th width="80" height="50">回答次数</th>
       <th width="100" height="50">创建时间</th>
-      <th colspan="1"></th>
     </tr>
   
 
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td width="500" height="50" align="center"><%= article.articlename %></td>
+        <td width="500" height="50" align="center"><%= link_to article.articlename, :controller => 'article' , :action => 'details' ,:aname => article.articlename , :cname => @coursename  %></td>
         <td width="80" height="50" align="center"><%=article.name%></td>
-        <td width="80" height="50" align="center"><%=article.viewtimes%></td>
-        <td width="80" height="50" align="center"><%=article.answertimes%></td>
+        <td width="80" height="50" align="center"><%=article.viewtimes.to_i%></td>
+        <td width="80" height="50" align="center"><%=article.answertimes.to_i%></td>
         <td width="100" height="50" align="center"><%= article.createtime %></td>
-        <td width="80" height="50" align="center"><%= link_to '查看详情', :controller => 'article' , :action => 'details' ,:aname => article.articlename , :cname => @coursename  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,6 +40,6 @@
 
 <br>
 
-<%= link_to '发表文章', :controller => 'article' , :action => 'newarticle',:cname =>@coursename %>
+
 
 

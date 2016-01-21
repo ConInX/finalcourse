@@ -4,7 +4,13 @@
     if(information!=null&&information!='')
         alert(information); 
 </script> 
-
+<left><span>首页 > 注册</span></left>
+<right><span style="float:right">
+    <% if session[:name] !=nil%>用户：<%= session[:name]%>   , <a href="/logout/logout" >退出</a>, 
+    <% else %>
+       <a href="/login/login" >登录</a>
+    <%end%>
+    </span></right>
 <div class="login-form" style="width:40%" >
 
 <%= form_for :user, :url => {:action => 'index'} do |f| %>

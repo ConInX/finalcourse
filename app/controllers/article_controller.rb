@@ -1,14 +1,24 @@
 class ArticleController < ApplicationController
-  
+  #该函数用来战士页面article/article  主要查找了一个课程下的所有文章，用于页面的战士
   def article
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
     @hint=params[:hint]
     @coursename=params[:cname]
     session[:coursename]=@coursename
     @articles=Article.where(:coursename =>@coursename)
   end
   
-  
+  #根据用户在表单中填写的文章的名称和文章的内容，在数据库中保存，并且重定向到article/article页面
   def newarticle
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
     unless request.get?
       commit = params[:commit]
       username=session[:name]
@@ -31,8 +41,13 @@ class ArticleController < ApplicationController
     end
   end
   
-  
+  #用来展示一篇文章的名称、内容、创建时间、评论等信息
   def details
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
     articlename=params[:aname]
     coursename=params[:cname]
     session[:articlename]=articlename
@@ -53,7 +68,13 @@ class ArticleController < ApplicationController
     @comments=Comment.where(:articlename=>articlename,:coursename=>coursename)
   end
   
+  #根据表单提交的用户评论的内容，对一篇文章进行评论，并讲该评论在数据库中保存
   def newcomment
+    username=session[:name]
+    articles=Article.where(:name => username)
+    comments=Comment.where(:name => username)
+    @size1=articles.size
+    @size2=comments.size
       @articlename=session[:articlename]
        @coursename=session[:coursename]
     unless request.get?

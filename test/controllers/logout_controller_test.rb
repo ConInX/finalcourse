@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class LogoutControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get login" do
+    get /login/login
+    assert_response :success
+  end
 end

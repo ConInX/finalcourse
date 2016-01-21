@@ -12,11 +12,10 @@
 <body>
   <div role="navigation" id="nav" class="closed" aria-hidden="false" style="transition: max-height 400ms; position: relative;">
       <ul>
-        <li class="active"><a href="/login/login" style=" font-size:20px;text-decoration:none">首页</a></li>
+        <li class="active"><a href="/login/login" style=" font-size:20px;text-decoration:none">登陆</a></li>
           <li><a href="/user_course/user_course" style=" font-size:20px;text-decoration:none">我的课程</a></li>
-            <li><a href="/articlesbyauser/articlesbyauser" style=" font-size:20px;text-decoration:none">我的文章</a></li>
-        <li><a href="/commentsbyauser/commentsbyauser" style=" font-size:20px;text-decoration:none">我的评论</a></li>
-        <li><a href="/logout/logout" style=" font-size:20px;text-decoration:none" >退出</a></li>
+            <li><a href="/articlesbyauser/articlesbyauser" style=" font-size:20px;text-decoration:none">我的文章(<%=@size1%>)</a></li>
+        <li><a href="/commentsbyauser/commentsbyauser" style=" font-size:20px;text-decoration:none">我的评论(<%=@size2%>)</a></li>
       </ul>
     </div>
 <div role ='main' class ='main login-screen2'>
